@@ -38,5 +38,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponse(ex.getMessage(), HttpStatus.UNAUTHORIZED);
     }
 
+    // 🔹 Division by Zero
+    @ExceptionHandler(DivisionByZeroException.class)
+    public ResponseEntity<ResponseStructure<String>> handleDivisionByZero(
+            DivisionByZeroException ex) {
+
+        return buildResponse(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
 
 }
